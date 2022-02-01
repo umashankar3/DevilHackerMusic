@@ -44,8 +44,8 @@ from pytgcalls.types import (
 from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from Hacker.queues import QUEUE, add_to_queue, get_queue, clear_queue, pop_an_item
-from Hacker.admin_check import *
+from HackerPlugins.queues import QUEUE, add_to_queue, get_queue, clear_queue, pop_an_item
+from HackerPlugins.admin_check import *
 
 bot = Client(
     "Music Stream Bot",
