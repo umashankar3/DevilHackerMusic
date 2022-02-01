@@ -27,7 +27,6 @@ import glob
 import json
 import logging
 import asyncio
-import youtube_dl
 from pytgcalls import StreamType
 from pytube import YouTube
 from youtube_search import YoutubeSearch
@@ -240,7 +239,7 @@ async def start_private(_, message):
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
     await message.reply_photo(photo="https://telegra.ph/file/8fddb775d567de8a63940.jpg",
-                              caption = f"Hello 🦋 {message.from_user.mention()} 🎧 𝐌𝐮𝐬𝐢𝐜 𝐏𝐥𝐚𝐲𝐞𝐫 𝐈𝐬 𝐑𝐮𝐧𝐧𝐢𝐧𝐠.",
+                              caption = f"Hello 🦋 {message.from_user.mention} 🎧 𝐌𝐮𝐬𝐢𝐜 𝐏𝐥𝐚𝐲𝐞𝐫 𝐈𝐬 𝐑𝐮𝐧𝐧𝐢𝐧𝐠.",
                               reply_markup = BUTTONS)
 
 
@@ -283,8 +282,8 @@ async def video_play(_, message):
         cap = f"▶️ <b>Now playing:</b> [{yt.title}]({link}) | `{doom}` \n\n⏳ <b>Duration:</b> {duration}"
         try:
             ydl_opts = {"format": "bestvideo[height<=720]+bestaudio/best[height<=720]"}
-            ydl = youtube_dl.YoutubeDL(ydl_opts)
-            info_dict = ydl.extract_info(link, download=False)
+            ydl = yt-dlp.YoutubeDL(ydl_opts)
+            info_dict = ydl.extract_info(link, download=True)
             p = json.dumps(info_dict)
             a = json.loads(p)
             playlink = a['formats'][1]['manifest_url']
