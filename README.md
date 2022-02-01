@@ -37,7 +37,7 @@
 
 ### Method 3
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Frakeshyt%2FDevilHackerMusic%2Ftree%2FRakesh%2F&envs=API_ID%2CAPI_HASH%2CBOT_TOKEN%2CSESSION_NAME%2CSUDO_USERS%2CBOT_USERNAME&SUDO_USERSDefault=2023126723&BOT_USERNAMEDefault=DevilTrishaRoBot)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Frakeshyt%2FDevilHackerMusic%2Ftree%2FRakesh&envs=SESSION_NAME%2CBOT_TOKEN%2CBOT_USERNAME%2COWNER_ID%2CAPI_HASH%2CAPI_ID&BOT_USERNAMEDefault=DevilTrishaRoBot&OWNER_IDDefault=14621169&API_HASHDefault=61e480d82ff09acbf967ccea4fa2884f&API_IDDefault=14621169)
 
 
 ### 𝙎𝙥𝙚𝙘𝙞𝙖𝙡 𝘾𝙧𝙚𝙙𝙞𝙩𝙨 ⚡
