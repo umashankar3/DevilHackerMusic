@@ -60,6 +60,8 @@ app = PyTgCalls(client)
 
 OWNER_ID = int(os.environ["OWNER_ID"])
 
+BOT_USERNAME = int(os.environ["BOT_USERNAME"])
+
 LIVE_CHATS = []
 
 START_TEXT = """
