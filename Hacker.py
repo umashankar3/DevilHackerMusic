@@ -222,7 +222,7 @@ async def cbcmds(_, query: CallbackQuery):
 » /resume - Resume The Song
 » /skip - switch to next Song
 » /end - Stop The Streaming
-» /userbotjoin - Invite Assistant To Your Group
+» /join - Invite Assistant To Your Group
 » /mute - Mute The Assistant On Voice Chat
 » /unmute - UnMute The Assistant On Voice Chat
 » /playlist - Show You The Playlist
@@ -238,7 +238,7 @@ async def start_private(_, message):
                              reply_markup = START_BUTTONS)
     
 
-@bot.on_message(filters.command(["userbotjoin", "userbotjoin@{BOT_USERNAME}"]) & filters.group)
+@bot.on_message(filters.command(["join", "join@{BOT_USERNAME}"]) & filters.group)
 async def join_chat(c: Client, m: Message):
     chat_id = m.chat.id
     try:
@@ -270,9 +270,7 @@ async def video_play(_, message):
     except:
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [query]</code>")
     chat_id = message.chat.id
-    if chat_id in LIVE_CHATS:
-        return await message.reply_text("❗️Please send <code>/stop</code> to end current live streaming before play songs or videos.")
-    
+
     m = await message.reply_text("🔄 Processing...")
     if state == "play":
         damn = AudioPiped
@@ -389,11 +387,6 @@ async def playlist(_, message):
 async def end(_, message):
     await message.delete()
     chat_id = message.chat.id
-    if chat_id in LIVE_CHATS:
-        await app.leave_group_call(chat_id)
-        LIVE_CHATS.remove(chat_id)
-        return await message.reply_text("⏹ Stopped streaming.")
-        
     if chat_id in QUEUE:
         await app.leave_group_call(chat_id)
         clear_queue(chat_id)
