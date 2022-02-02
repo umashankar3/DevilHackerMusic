@@ -27,22 +27,23 @@ import glob
 import json
 import logging
 import asyncio
-from pytgcalls import StreamType
 from pytube import YouTube
 from youtube_search import YoutubeSearch
 from pytgcalls import PyTgCalls, idle
+from pytgcalls import StreamType
 from pytgcalls.types import Update
-from pyrogram.raw.base import Update
 from pytgcalls.types import AudioPiped, AudioVideoPiped
+from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 from pytgcalls.types import (
     HighQualityAudio,
     HighQualityVideo,
     LowQualityVideo,
     MediumQualityVideo
 )
-from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from pyrogram.raw.base import Update
+from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message
 from HackerPlugins.queues import QUEUE, add_to_queue, get_queue, clear_queue, pop_an_item
 from HackerPlugins.admin_check import *
 
@@ -235,6 +236,21 @@ async def start_private(_, message):
                              caption = msg,
                              reply_markup = START_BUTTONS)
     
+
+@bot.on_message(filters.command(["userbotjoin", "userbotjoin@{BOT_USERNAME}"]) & filters.group)
+async def join_chat(c: Client, m: Message):
+    chat_id = m.chat.id
+    try:
+        invitelink = await c.export_chat_invite_link(chat_id)
+        if invitelink.startswith("https://t.me/+"):
+            invitelink = invitelink.replace(
+                "https://t.me/+", "https://t.me/joinchat/"
+            )
+            await client.join_chat(invitelink)
+            return await client.send_message(chat_id, "✅ Assistant joined chat")
+    except UserAlreadyParticipant:
+        return await client.send_message(chat_id, "✅ Assistant already in chat")
+
 
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
