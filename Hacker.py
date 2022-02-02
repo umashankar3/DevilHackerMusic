@@ -222,6 +222,7 @@ async def cbcmds(_, query: CallbackQuery):
 » /resume - Resume The Song
 » /skip - switch to next Song
 » /end - Stop The Streaming
+» /userbotjoin - Invite Assistant To Your Group
 » /mute - Mute The Assistant On Voice Chat
 » /unmute - UnMute The Assistant On Voice Chat
 » /playlist - Show You The Playlist
