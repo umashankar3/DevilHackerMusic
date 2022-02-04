@@ -3,4 +3,4 @@ tgcrypto
 py-tgcalls
 youtube_search
 pytube
-git+https://github.com/rakeshyt/pipeline@master
+yt-dlp
