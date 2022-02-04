@@ -35,11 +35,6 @@
 <p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=cmFrZXNoeXQvRGV2aWxIYWNrZXJNdXNpYyBSYWtlc2g"><img align="center" alt="Heroku" width="52px" src="https://www.nicepng.com/png/full/223-2233246_heroku-logo-salesforce-heroku.png"></p>
 
 
-### Method 3
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Frakeshyt%2FDevilHackerMusic%2Ftree%2FRakesh&envs=SESSION_NAME%2CBOT_TOKEN%2CBOT_USERNAME%2COWNER_ID%2CAPI_HASH%2CAPI_ID&BOT_USERNAMEDefault=DevilTrishaRoBot&OWNER_IDDefault=14621169&API_HASHDefault=61e480d82ff09acbf967ccea4fa2884f&API_IDDefault=14621169)
-
-
 ### 𝙎𝙥𝙚𝙘𝙞𝙖𝙡 𝘾𝙧𝙚𝙙𝙞𝙩𝙨 ⚡
 - [𝘿𝙀𝙑𝙄𝙇 𝙃𝘼𝘾𝙆𝙀𝙍🔥](https://t.me/JaiHindChatting) 𝗢𝘄𝗻𝗲𝗿
 
