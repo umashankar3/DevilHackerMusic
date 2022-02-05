@@ -27,6 +27,7 @@ import glob
 import json
 import logging
 import asyncio
+import youtube_dl
 from pytube import YouTube
 from youtube_search import YoutubeSearch
 from pytgcalls import PyTgCalls, idle
@@ -175,7 +176,7 @@ async def on_end_handler(_, update: Update):
 async def close_handler(client: PyTgCalls, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-        
+
 
 async def yt_video(link):
     proc = await asyncio.create_subprocess_exec(
@@ -270,7 +271,6 @@ async def video_play(_, message):
     except:
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [query]</code>")
     chat_id = message.chat.id
-
     m = await message.reply_text("🔄 Processing...")
     if state == "play":
         damn = AudioPiped
@@ -297,8 +297,8 @@ async def video_play(_, message):
         cap = f"▶️ <b>Now playing:</b> [{yt.title}]({link}) | `{doom}` \n\n⏳ <b>Duration:</b> {duration}"
         try:
             ydl_opts = {"format": "bestvideo[height<=720]+bestaudio/best[height<=720]"}
-            ydl = yt-dlp.YoutubeDL(ydl_opts)
-            info_dict = ydl.extract_info(link, download=True)
+            ydl = youtube_dl.YoutubeDL(ydl_opts)
+            info_dict = ydl.extract_info(link, download=False)
             p = json.dumps(info_dict)
             a = json.loads(p)
             playlink = a['formats'][1]['manifest_url']
@@ -355,8 +355,8 @@ async def skip(_, message):
                     else:
                         out = out + "\n" + f"<b>#️⃣ {x}</b> - {hm}"
             await message.reply_text(out)
-            
-            
+
+
 @bot.on_message(filters.command(["playlist"]) & filters.group)
 @is_admin
 async def playlist(_, message):
@@ -390,7 +390,7 @@ async def end(_, message):
     if chat_id in QUEUE:
         await app.leave_group_call(chat_id)
         clear_queue(chat_id)
-        await message.reply_text("⏹ Stopped streaming.")
+        await message.reply_text("⏹ Stopped Playing.")
     else:
         await message.reply_text("❗Nothing is playing.")
         
@@ -403,7 +403,7 @@ async def pause(_, message):
     if chat_id in QUEUE:
         try:
             await app.pause_stream(chat_id)
-            await message.reply_text("⏸ Paused streaming.")
+            await message.reply_text("⏸ Paused Playing.")
         except:
             await message.reply_text("❗Nothing is playing.")
     else:
@@ -433,7 +433,7 @@ async def mute(_, message):
     if chat_id in QUEUE:
         try:
             await app.mute_stream(chat_id)
-            await message.reply_text("🔇 Muted streaming.")
+            await message.reply_text("🔇 Muted Playing.")
         except:
             await message.reply_text("❗Nothing is playing.")
     else:
