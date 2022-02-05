@@ -3,4 +3,5 @@ tgcrypto
 py-tgcalls
 youtube_search
 pytube
-yt-dlp
+yt_dlp
+youtube_dl
