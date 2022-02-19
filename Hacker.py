@@ -74,8 +74,8 @@ START_TEXT = """
 BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="• 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 •", url="https://t.me/JaiHindChatting"),
-            InlineKeyboardButton(text="• 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 •", url="https://t.me/RymOfficial")
+            InlineKeyboardButton(text="❤️INSTAGRAM❤️", url="https://instagram.com/umashankar31981"),
+            InlineKeyboardButton(text="💝FACEBOOK💝", url="https://www.facebook.com/Umashankar31981")
         ]
     ]
 )
@@ -207,7 +207,7 @@ async def cbcmds(_, query: CallbackQuery):
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
-    await message.reply_photo(photo="https://telegra.ph/file/8fddb775d567de8a63940.jpg",
+    await message.reply_photo(photo="https://te.legra.ph/file/0253d697e8248405045f6.mp4",
                              caption = msg,
                              reply_markup = START_BUTTONS)
     
@@ -229,7 +229,7 @@ async def join_chat(c: Client, m: Message):
 
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
-    await message.reply_photo(photo="https://telegra.ph/file/8fddb775d567de8a63940.jpg",
+    await message.reply_photo(photo="https://te.legra.ph/file/0253d697e8248405045f6.mp4",
                               caption = f"Hello 🦋 {message.from_user.mention} 🎧 𝐌𝐮𝐬𝐢𝐜 𝐏𝐥𝐚𝐲𝐞𝐫 𝐈𝐬 𝐑𝐮𝐧𝐧𝐢𝐧𝐠.",
                               reply_markup = BUTTONS)
 
@@ -244,7 +244,7 @@ async def video_play(_, message):
     except:
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [query]</code>")
     chat_id = message.chat.id
-    m = await message.reply_text("🔄 Processing...")
+    m = await message.reply_text("🔄 Processing Serching Your Song 💝...")
     if state == "play":
         damn = AudioPiped
         ded = yt_audio
